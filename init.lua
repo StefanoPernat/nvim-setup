@@ -28,17 +28,10 @@ local opts = {}
 
 -- setup plugins.lua
 require("lazy").setup("plugins")
+local treesitterconf = require("nvim-treesitter.configs")
 -- end setup plugins.lua
 
-require("catppuccin").setup()
-vim.cmd.colorscheme "catppuccin"
-local builtin = require("telescope.builtin")
-local treesitterconf = require("nvim-treesitter.configs")
--- setup plugins end
-
 -- telescope config
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 -- remember it needs ripgrep to work
 -- telescope config end
 

@@ -28,22 +28,4 @@ local opts = {}
 
 -- setup plugins.lua
 require("lazy").setup("plugins")
-local treesitterconf = require("nvim-treesitter.configs")
 -- end setup plugins.lua
-
--- telescope config
--- remember it needs ripgrep to work
--- telescope config end
-
--- treesitter config
-treesitterconf.setup({
-  ensure_installed = {"lua", "javascript", "dockerfile", "go", "liquid", "php", "yaml", "python"},
-  highlight = { enable = true },
-  indent = {enable = true},
-
-})
--- treesitter config end
-
--- neotree config 
-vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal right<CR>', {})
--- neotree config end

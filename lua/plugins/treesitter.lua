@@ -7,7 +7,7 @@ return {
 
     -- treesitter config
     treesitterconf.setup({
-      auto_install = true
+      auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
     })

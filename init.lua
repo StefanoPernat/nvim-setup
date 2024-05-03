@@ -3,6 +3,7 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
+vim.cmd("set number")
 vim.g.mapleader = " "
 -- tab configuration end
 
@@ -21,19 +22,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 -- install lazy vim end
 
--- setup plugins
-local plugins = {
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  {
-    'nvim-telescope/telescope.nvim', tag = '0.1.6',
-      dependencies = { 'nvim-lua/plenary.nvim' }
-  },
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' }
-}
+
 
 local opts = {}
 
-require("lazy").setup(plugins, opts)
+-- setup plugins.lua
+require("lazy").setup("plugins")
+-- end setup plugins.lua
+
 require("catppuccin").setup()
 vim.cmd.colorscheme "catppuccin"
 local builtin = require("telescope.builtin")
@@ -48,9 +44,13 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 
 -- treesitter config
 treesitterconf.setup({
-  ensure_installed = {"lua", "javascript"},
+  ensure_installed = {"lua", "javascript", "dockerfile", "go", "liquid", "php", "yaml", "python"},
   highlight = { enable = true },
   indent = {enable = true},
 
 })
 -- treesitter config end
+
+-- neotree config 
+vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal right<CR>', {})
+-- neotree config end
